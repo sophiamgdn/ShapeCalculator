@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShapeCalculator.Pages.RectangleCalculator"
+             Title="RectangleCalculator"
+             Shell.NavBarIsVisible="False">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="rectanglearea.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="rectangleperimeter.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="rectanglevolume.png" Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Length (l)" Margin="10,20,10,10"/>
+                    <Border Stroke="Black" Margin="0,18,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry Keyboard="Numeric" x:Name="txtLength"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Width (w)" Margin="9,0,10,10"/>
+                    <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry Keyboard="Numeric" x:Name="txtWidth"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+                
+                <Label Text="Result" Margin="10,20,10,10" FontAttributes="Bold"/>
+                <HorizontalStackLayout>
+                    <Label Text="Area" Margin="10,-2,10,10"/>
+                    <Border Stroke="Black" Margin="31,-7,0,0"   WidthRequest="120" HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry IsReadOnly="True" x:Name="txtResultArea"   VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Perimeter" Margin="10,4,10,10"/>
+                    <Border Stroke="Black" Margin="-3,2,0,0"   WidthRequest="120" HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry IsReadOnly="True" x:Name="txtResultPerimeter"   VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+                
+                <Label Text="Volume-Rectangular Tank" Margin="10,80,10,10" FontAttributes="Bold"/>
+                <HorizontalStackLayout>
+                    <Label Text="Length (l)" Margin="10,0,10,10"/>
+                    <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry Keyboard="Numeric" x:Name="txtLengthVol"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Width (w)" Margin="10,3,10,10"/>
+                    <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry Keyboard="Numeric" x:Name="txtWidthVol"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Height (h)" Margin="10,3,10,10"/>
+                    <Border Stroke="Black" Margin="-2,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                        <Entry Keyboard="Numeric" x:Name="txtHeightVol"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                    </Border>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+                
+                
+               
+                
+            <VerticalStackLayout>
+                <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="10,33,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                    <Picker VerticalTextAlignment="Start" x:Name="pkrArea" WidthRequest="150" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>in</x:String>
+                                <x:String>m</x:String>
+                                <x:String>cm</x:String>
+                                <x:String>km</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="10,270,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                    <Picker VerticalTextAlignment="Start" x:Name="pkrVolume" WidthRequest="150" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>in</x:String>
+                                <x:String>m</x:String>
+                                <x:String>cm</x:String>
+                                <x:String>km</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+
+            <HorizontalStackLayout Margin="23,26,0,0">
+                 <Button Clicked="OnbtnCalculateArea_Clicked"  x:Name="btnCalculateArea" FontAttributes="Bold" Text="Calculate" WidthRequest="60"  CornerRadius="20" BackgroundColor="DodgerBlue" FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20" />
+                 <Button Clicked="OnbtnCancelArea_Clicked" x:Name="btnCancelArea" FontAttributes="Bold" Text="Clear"  WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,0,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+            </HorizontalStackLayout>
+
+             <Label Text="Result" FontAttributes="Bold" Margin="25,235,0,0"/>
+             <Border Stroke="Black" HeightRequest="30" BackgroundColor="White" StrokeThickness="1" Margin="25,15,0,0">
+                    <Entry IsReadOnly="True" x:Name="txtResultVolume" WidthRequest="120" VerticalTextAlignment="Start"/>
+             </Border>
+                <HorizontalStackLayout Margin="23,5,0,0">
+                    <Button x:Name="btnCalculateVolume" Clicked="OnbtnCalculateVolume_Clicked" FontAttributes="Bold" Text="Calculate" WidthRequest="60"  CornerRadius="20" BackgroundColor="DodgerBlue" FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20" />
+                    <Button x:Name="btnCancelVolume" Clicked="OnbtnCancelVolume_Clicked" FontAttributes="Bold" Text="Clear"  WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,0,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>

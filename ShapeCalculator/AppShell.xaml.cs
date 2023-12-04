@@ -1,0 +1,10 @@
+﻿namespace ShapeCalculator
+{
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
+}

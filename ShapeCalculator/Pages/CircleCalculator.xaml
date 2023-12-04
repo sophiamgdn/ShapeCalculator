@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShapeCalculator.Pages.CircleCalculator"
+             Title="CircleCalculator"
+             Shell.NavBarIsVisible="False">
+    
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="circlearea.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="circleperimeter.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="circlevolume.png" Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="10,30,0,0">
+                    <Label Text="Radius (r)" Margin="10,0,10,10"/>
+                    <Border WidthRequest="120" Stroke="Black" HeightRequest="30" Margin="15,-10,0,0">
+                        <Entry Keyboard="Numeric" x:Name="txtRadius" HeightRequest="30" VerticalTextAlignment="Start"></Entry>
+                    </Border>
+                    <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="15,-10,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                        <Picker VerticalTextAlignment="Start" x:Name="pkrMeasurement" WidthRequest="120" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>-SELECT-</x:String>
+                                    <x:String>in</x:String>
+                                    <x:String>m</x:String>
+                                    <x:String>cm</x:String>
+                                    <x:String>km</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Border>
+                    <Button  Clicked="OnbtnCalculate_Clicked" x:Name="btnCalculate" Margin="30,-15,0,0" FontAttributes="Bold" Text="Calculate" WidthRequest="60" CornerRadius="20" BackgroundColor="DodgerBlue"  FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20"/>
+                    <Button  Clicked="OnbtnClear_Clicked" x:Name="btnClear" FontAttributes="Bold" Text="Clear" WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,-15,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+                </HorizontalStackLayout>
+                <VerticalStackLayout Margin="18,30,0,15">
+                    <Label Text="Result" Margin="0,5,0,15" FontAttributes="Bold"/>
+                    <HorizontalStackLayout >
+                        <Label Text="Area" Margin="0,10,0,0"/>
+                        <Border HeightRequest="30" Stroke="Black" Margin="88,8,0,0">
+                            <Entry IsReadOnly="True" x:Name="txtArea" WidthRequest="120" HeightRequest="30" VerticalTextAlignment="Start"></Entry>
+                        </Border>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout >
+                        <Label Text="Perimeter" Margin="0,10,0,0"/>
+                        <Border HeightRequest="30" Stroke="Black" Margin="55,8,0,0">
+                            <Entry IsReadOnly="True" x:Name="txtPerimeter" WidthRequest="120" HeightRequest="30" VerticalTextAlignment="Start"></Entry>
+                        </Border>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout >
+                        <Label Text="Volume - Sphere" Margin="0,10,0,0"/>
+                        <Border HeightRequest="30" Stroke="Black" Margin="13,8,0,0">
+                            <Entry IsReadOnly="True" x:Name="txtVolumeSphere" WidthRequest="120" HeightRequest="30" VerticalTextAlignment="Start"></Entry>
+                        </Border>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>

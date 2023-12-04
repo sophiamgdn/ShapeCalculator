@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShapeCalculator.Pages.TriangleCalculator"
+             Title="TriangleCalculator"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="trianglearea.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="triangleperimeter.png"  Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+                <Border Margin="10" Stroke="Black">
+                    <Image Source="conevolume.png" Aspect="AspectFit" WidthRequest="120" HeightRequest="120"></Image>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label x:Name="lblArea" Text="Area" Margin="10,20,10,10" FontAttributes="Bold"/>
+                <Label x:Name="lblBaseArea" Text="Base" Margin="10,0,10,10"/>
+                <Label x:Name="lblHeight" Text="Height" Margin="10,0,10,10"/>
+                <Label x:Name="lblPerimeter" Text="Perimeter" Margin="10,50,10,10" FontAttributes="Bold"/>
+                <Label x:Name="lblSide1" Text="Side 1" Margin="10,0,10,10"/>
+                <Label x:Name="lblSide2" Text="Side 2" Margin="10,0,10,10"/>
+                <Label x:Name="lblSide3" Text="Side 3" Margin="10,0,10,10"/>
+                <Label x:Name="lblVolumeCone" Text="Volume-Cone" Margin="10,25,10,10" FontAttributes="Bold"/>
+                <Label x:Name="lblBase" Text="Base" Margin="10,0,10,10"/>
+                <Label x:Name="lblRadius" Text="Radius (r)" Margin="10,-13,10,10"/>
+                <Label x:Name="lblHeightVolume" Text="Height (h)" Margin="10,-5,10,10"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Border Stroke="Black" Margin="0,40,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry x:Name="txtBase"  WidthRequest="120" VerticalTextAlignment="Start" Keyboard="Numeric"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtHeight"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,75,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtSide1"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtSide2"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtSide3"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,56,0,0"  HeightRequest="35" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtBaseRadius"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <Border Stroke="Black" Margin="0,2,0,0"  HeightRequest="30" BackgroundColor="White" StrokeThickness="1">
+                    <Entry Keyboard="Numeric" x:Name="txtHeightVolume"  WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="15,55,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                    <Picker VerticalTextAlignment="Start" x:Name="pkrArea" WidthRequest="150" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>in</x:String>
+                                <x:String>m</x:String>
+                                <x:String>cm</x:String>
+                                <x:String>km</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="15,117,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                    <Picker VerticalTextAlignment="Start" x:Name="pkrPerimeter" WidthRequest="150" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>in</x:String>
+                                <x:String>m</x:String>
+                                <x:String>cm</x:String>
+                                <x:String>km</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 5,5,5,5" Margin="15,100,0,0" Stroke="Black" StrokeThickness="1" HeightRequest="35">
+                    <Picker VerticalTextAlignment="Start" x:Name="pkrVolume" WidthRequest="150" TextColor="Black" BackgroundColor="White" SelectedIndex="0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>in</x:String>
+                                <x:String>m</x:String>
+                                <x:String>cm</x:String>
+                                <x:String>km</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout>
+
+                <Label x:Name="lblResultArea"  Text="Result" FontAttributes="Bold" Margin="25,23,0,0"/>
+                <Border Stroke="Black" HeightRequest="30" BackgroundColor="White" StrokeThickness="1.5" WidthRequest="120" Margin="25,15,0,0">
+                    <Entry x:Name="txtResultArea" WidthRequest="120" VerticalTextAlignment="Start" IsReadOnly="True"/>
+                </Border>
+                <HorizontalStackLayout Margin="23,5,0,0">
+                    <Button Clicked="OnbtnCalculateArea_Clicked" x:Name="btnCalculateArea" FontAttributes="Bold" Text="Calculate" WidthRequest="60"  CornerRadius="20" BackgroundColor="DodgerBlue" FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20" />
+                    <Button Clicked="OnbtnCancelArea_Clicked" x:Name="btnCancelArea" FontAttributes="Bold" Text="Clear"  WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,0,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+                </HorizontalStackLayout>
+
+                <Label x:Name="lblResultPerimeter" Text="Result" FontAttributes="Bold" Margin="25,38,0,0"/>
+                <Border Stroke="Black" HeightRequest="30" BackgroundColor="White" StrokeThickness="1.5" WidthRequest="120" Margin="25,15,0,0">
+                    <Entry  IsReadOnly="True" x:Name="txtResultPerimeter" WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <HorizontalStackLayout Margin="23,5,0,0">
+                    <Button Clicked="OnbtnCalculatePerimeter_Clicked" x:Name="btnCalculatePerimeter" FontAttributes="Bold" Text="Calculate" WidthRequest="60"  CornerRadius="20" BackgroundColor="DodgerBlue" FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20" />
+                    <Button Clicked="OnbtnCancelPerimeter_Clicked" x:Name="btnCancelPerimeter" FontAttributes="Bold" Text="Clear"  WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,0,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+                </HorizontalStackLayout>
+
+                <Label x:Name="lblResultVolume" Text="Result" FontAttributes="Bold" Margin="25,23,0,0"/>
+                <Border Stroke="Black" HeightRequest="30" BackgroundColor="White" StrokeThickness="1.5" WidthRequest="120" Margin="25,15,0,0">
+                    <Entry IsReadOnly="True" x:Name="txtResultVolume" WidthRequest="120" VerticalTextAlignment="Start"/>
+                </Border>
+                <HorizontalStackLayout Margin="23,5,0,0">
+                    <Button Clicked="OnbtnCalculateVolume_Clicked"  x:Name="btnCalculateVolume" FontAttributes="Bold" Text="Calculate" WidthRequest="60"  CornerRadius="20" BackgroundColor="DodgerBlue" FontSize="10" BorderColor="Black" Padding="-20,-20,-20,-20" />
+                    <Button Clicked="OnbtnCancelVolume_Clicked" x:Name="btnCancelVolume" FontAttributes="Bold" Text="Clear"  WidthRequest="60" CornerRadius="20" TextColor="Black" BackgroundColor="White" BorderColor="Black" Margin="5,0,0,0" FontSize="10" Padding="-20,-20,-20,-20"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </StackLayout>
+    
+
+
+</ContentPage>
